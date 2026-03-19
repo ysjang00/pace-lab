@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Members - PACE Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff; --bg2: #F2F2F2; --bg3: #E8E8E8;
+  --border: rgba(0,0,0,0.10); --border2: rgba(0,0,0,0.18);
+  --text: #111111; --text2: #333333; --text3: #666666;
+  --accent: #2a6496; --accent2: rgba(42,100,150,0.07);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --max-w: 1100px;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 15px; line-height: 1.7; font-weight: 400; overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); height: 64px; }
+.nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-left { display: flex; align-items: center; gap: 1rem; }
+.nav-logo { font-family: var(--font-serif); font-size: 20px; color: var(--text); text-decoration: none; }
+.nav-logo span { color: var(--accent); }
+.nav-divider { width: 1px; height: 22px; background: var(--border2); }
+.nav-yonsei { height: 36px; width: auto; object-fit: contain; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--text2); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; padding-bottom: 2px; }
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.active { color: var(--text); font-weight: 600; border-bottom: 1.5px solid var(--accent); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text2); margin: 5px 0; }
+.page-wrap { padding-top: 64px; min-height: 100vh; }
+.page-hero { background: var(--bg2); border-bottom: 0.5px solid var(--border); padding: 4rem 0 3rem; }
+.page-hero-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+.page-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--text); font-weight: 400; letter-spacing: -0.01em; }
+.page-body { max-width: var(--max-w); margin: 0 auto; padding: 3.5rem 2.5rem; }
+.section-sep { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+.section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); font-weight: 600; }
+footer { border-top: 0.5px solid var(--border); padding: 3rem 0; background: var(--bg); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; }
+.footer-info .footer-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; }
+.footer-info p { font-size: 13px; color: var(--text2); line-height: 1.9; }
+.footer-info a { color: var(--accent); text-decoration: none; }
+.footer-copy { font-size: 12px; color: var(--text3); margin-top: 1rem; }
+.footer-links-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.footer-links-label::before { content: '●'; font-size: 8px; }
+.footer-nav-grid { display: grid; grid-template-columns: repeat(3, 100px); gap: 0.35rem 0; }
+.footer-nav-grid a { font-size: 13px; color: var(--text2); text-decoration: none; padding: 3px 0; display: block; transition: color 0.2s; }
+.footer-nav-grid a:hover { color: var(--accent); }
+@media (max-width: 860px) {
+  .nav-inner { padding: 0 1.5rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 1rem 1.5rem 2rem; border-bottom: 0.5px solid var(--border); gap: 1.2rem; }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .page-hero { padding: 3rem 0 2rem; }
+  .page-hero-inner { padding: 0 1.5rem; }
+  .page-body { padding: 2.5rem 1.5rem; }
+  footer { padding: 2rem 0; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.5rem; }
+  .footer-nav-grid { grid-template-columns: repeat(2, 120px); }
+}
+.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo">PACE<span>·</span>LAB</a>
+      <div class="nav-divider"></div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4ZFCY9eUOQ_6hBHsSnHDEPL3qepl-cpsVag&s" alt="Yonsei University" class="nav-yonsei">
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="professor.html">Professor</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="members.html" class="active">Members</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page-wrap">
+  <div class="page-hero"><div class="page-hero-inner"><h1 class="page-title">Members</h1></div></div>
+  <div class="page-body fade-in"></div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-info">
+      <div class="footer-name">PACE Lab · 최보름 교수 연구실</div>
+      <p>연세대학교 정보대학원</p>
+      <p>서울특별시 서대문구 연세로 50, 새천년관</p>
+      <p>Email: <a href="mailto:boreumchoi@yonsei.ac.kr">boreumchoi@yonsei.ac.kr</a></p>
+      <div class="footer-copy">© 2026 PACE Lab, Yonsei University. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-links-label">Quick Links</div>
+      <div class="footer-nav-grid">
+        <a href="index.html">Home</a><a href="professor.html">Professor</a><a href="members.html">Members</a>
+        <a href="publications.html">Publications</a><a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById("navToggle").addEventListener("click", () => { document.getElementById("navLinks").classList.toggle("open"); });
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }); }, { threshold: 0.05 });
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+</script>
+</body></html>
